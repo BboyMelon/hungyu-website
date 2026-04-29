@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>林鴻宇 Hung Yu Lin｜陪伴系療癒歌手</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #112254;
+      --bg2:       #0d1c46;
+      --surface:   #1a2e68;
+      --amber:     #d4703a;
+      --amber-soft:#e8a070;
+      --blue-light:#5ab4dc;
+      --text:      #ffffff;
+      --muted:     #c8dff5;
+      --border:    rgba(255,255,255,0.14);
+      --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Noto Serif TC', serif;
+      font-weight: 300;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    /* Grain overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: var(--grain);
+      background-repeat: repeat;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.6;
+    }
+
+    /* ─── Nav ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 3rem;
+      background: linear-gradient(to bottom, rgba(13,15,20,0.95), transparent);
+      backdrop-filter: blur(2px);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.15em;
+      color: var(--amber);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--amber-soft); }
+
+    /* ─── Hero ─── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 0 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 50% 100% at 75% 50%, rgba(8,16,50,0.7) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 60% at 10% 80%, rgba(10,30,100,0.4) 0%, transparent 55%);
+    }
+
+    .hero-photo {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: 48%;
+      object-fit: cover;
+      object-position: top center;
+      mask-image: linear-gradient(to left, rgba(0,0,0,0.9) 40%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.9) 40%, transparent 100%);
+      opacity: 0.85;
+    }
+
+    .hero-tag {
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .hero-tag::before {
+      content: '';
+      display: inline-block;
+      width: 2.5rem;
+      height: 1px;
+      background: var(--amber);
+    }
+
+    .hero-name-zh {
+      font-size: clamp(3.5rem, 9vw, 7.5rem);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      line-height: 1;
+      color: var(--text);
+    }
+
+    .hero-name-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 4vw, 3rem);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--amber-soft);
+      margin-top: 0.3rem;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-desc {
+      margin-top: 2rem;
+      max-width: 28rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 2;
+    }
+
+    .hero-cta {
+      margin-top: 3rem;
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid;
+      transition: all 0.3s;
+      font-family: 'Noto Serif TC', serif;
+    }
+
+    .btn-primary {
+      background: var(--amber);
+      border-color: var(--amber);
+      color: var(--bg);
+    }
+
+    .btn-primary:hover {
+      background: var(--amber-soft);
+      border-color: var(--amber-soft);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border-color: var(--border);
+      color: var(--muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--amber);
+      color: var(--amber);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--muted);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 3rem;
+      background: linear-gradient(to bottom, var(--muted), transparent);
+      animation: scrollDrop 1.8s ease-in-out infinite;
+    }
+
+    @keyframes scrollDrop {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* ─── Sections ─── */
+    section {
+      padding: 7rem 6rem;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      max-width: 3rem;
+      height: 1px;
+      background: var(--amber);
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 3rem;
+    }
+
+    /* ─── About ─── */
+    #about {
+      background: var(--bg2);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-photo-wrap {
+      position: relative;
+    }
+
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      border: 1px solid var(--border);
+    }
+
+    .about-photo-caption {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+    }
+
+    .about-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.2rem, 2vw, 1.7rem);
+      font-style: italic;
+      line-height: 1.7;
+      color: var(--text);
+      border-left: 2px solid var(--amber);
+      padding-left: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+      font-size: 0.9rem;
+    }
+
+    .traits {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-top: 2.5rem;
+    }
+
+    .trait {
+      padding: 1.2rem;
+      border: 1px solid var(--border);
+      background: rgba(201,147,58,0.03);
+    }
+
+    .trait-title {
+      font-size: 0.8rem;
+      color: var(--amber);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+    }
+
+    .trait-desc {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ─── Music ─── */
+    #music {
+      background: var(--bg);
+    }
+
+    .album-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .album-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .album-card:hover {
+      border-color: var(--amber);
+      transform: translateY(-4px);
+    }
+
+    .album-year {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      color: var(--amber);
+      margin-bottom: 0.6rem;
+    }
+
+    .album-title {
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+    }
+
+    .album-type {
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      margin-bottom: 1.2rem;
+    }
+
+    .album-tracks {
+      list-style: none;
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+    }
+
+    .album-tracks li {
+      font-size: 0.8rem;
+      color: var(--muted);
+      padding: 0.3rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .album-tracks li::before {
+      content: '♩';
+      color: var(--amber);
+      font-size: 0.65rem;
+    }
+
+    .collab-badge {
+      margin-left: auto;
+      font-size: 0.62rem;
+      color: var(--amber);
+      border: 1px solid var(--amber);
+      padding: 0.1rem 0.4rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* Singles */
+    .singles-title {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    .singles-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .single-tag {
+      padding: 0.45rem 1rem;
+      border: 1px solid var(--border);
+      font-size: 0.78rem;
+      color: var(--muted);
+      transition: all 0.25s;
+      cursor: default;
+    }
+
+    .single-tag:hover {
+      border-color: var(--amber);
+      color: var(--amber);
+    }
+
+    .single-tag.highlight {
+      border-color: rgba(201,147,58,0.4);
+      color: var(--amber-soft);
+    }
+
+    /* ─── Stats ─── */
+    #stats {
+      background: linear-gradient(180deg, var(--bg2) 0%, #091e3c 50%, var(--bg2) 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 5rem 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #stats::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 120%, rgba(30,120,200,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 3rem;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: var(--amber);
+      line-height: 1;
+    }
+
+    .stat-unit {
+      font-size: 1.2rem;
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-top: 0.6rem;
+      text-transform: uppercase;
+    }
+
+    .stat-sub {
+      font-size: 0.68rem;
+      color: rgba(122,118,112,0.6);
+      margin-top: 0.2rem;
+    }
+
+    /* ─── Live ─── */
+    #live {
+      background: var(--bg2);
+    }
+
+    .live-year-group {
+      margin-bottom: 3rem;
+    }
+
+    .live-year {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 300;
+      color: rgba(201,147,58,0.15);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .live-events {
+      display: grid;
+      gap: 1rem;
+      border-left: 1px solid var(--border);
+      padding-left: 2rem;
+      margin-left: 0.5rem;
+    }
+
+    .live-event {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: start;
+      padding: 1.2rem 1.5rem;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+
+    .live-event:hover {
+      border-color: var(--border);
+    }
+
+    .live-event-name {
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .live-event-venue {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .live-event-date {
+      font-size: 0.72rem;
+      color: var(--amber);
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+
+    .live-badge {
+      display: inline-block;
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid;
+      padding: 0.15rem 0.5rem;
+      margin-left: 0.6rem;
+    }
+
+    .live-badge.upcoming {
+      color: #4caf7d;
+      border-color: #4caf7d;
+    }
+
+    .live-badge.festival {
+      color: var(--amber);
+      border-color: var(--amber);
+    }
+
+    /* ─── Press ─── */
+    #press {
+      background: var(--bg);
+    }
+
+    .press-quotes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .press-card {
+      padding: 2rem;
+      border: 1px solid var(--border);
+      position: relative;
+    }
+
+    .press-card::before {
+      content: '"';
+      position: absolute;
+      top: 1rem;
+      left: 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      line-height: 1;
+      color: rgba(201,147,58,0.2);
+    }
+
+    .press-text {
+      font-size: 0.88rem;
+      line-height: 1.8;
+      color: var(--text);
+      margin-bottom: 1rem;
+      padding-top: 1rem;
+    }
+
+    .press-source {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--amber);
+    }
+
+    /* ─── Contact ─── */
+    #contact {
+      background: var(--bg2);
+      text-align: center;
+      padding: 8rem 6rem;
+    }
+
+    .contact-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-style: italic;
+      font-weight: 300;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-sub {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-bottom: 3rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.8rem;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      transition: all 0.3s;
+    }
+
+    .social-link:hover {
+      border-color: var(--amber);
+      color: var(--amber);
+    }
+
+    .contact-email {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .contact-email a {
+      color: var(--amber-soft);
+      text-decoration: none;
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.7rem;
+      color: rgba(122,118,112,0.5);
+      letter-spacing: 0.1em;
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1rem; }
+      #hero { padding: 0 2rem; }
+      section { padding: 5rem 2rem; }
+      #about { grid-template-columns: 1fr; gap: 3rem; }
+      #stats { padding: 4rem 2rem; }
+      #contact { padding: 6rem 2rem; }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .traits { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#hero">HungYu Lin</a>
+    <ul class="nav-links">
+      <li><a href="#about">關於</a></li>
+      <li><a href="#music">作品</a></li>
+      <li><a href="#live">演出</a></li>
+      <li><a href="#press">媒體</a></li>
+      <li><a href="#contact">聯絡</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <img class="hero-photo" src="images/portfolio_p1_img2.png" alt="林鴻宇 Hung Yu Lin" />
+    <div class="hero-tag">陪伴系療癒歌手・獨立音樂創作人</div>
+    <h1 class="hero-name-zh">林鴻宇</h1>
+    <p class="hero-name-en">Hung Yu Lin</p>
+    <p class="hero-desc">
+      以溫暖敘事、顆粒感嗓音橫跨 Pop Ballad、流行搖滾與 Indie Pop，
+      十年創作沉澱，帶著憂鬱卻灑脫的浪漫。
+    </p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="https://open.spotify.com/artist/" target="_blank">在 Spotify 聆聽</a>
+      <a class="btn btn-ghost" href="#about">了解更多</a>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      Scroll
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-photo-wrap">
+      <img class="about-photo" src="images/portfolio_p2_img2.png" alt="林鴻宇 現場演出" />
+      <span class="about-photo-caption">Live Performance</span>
+    </div>
+    <div class="about-text">
+      <div class="section-label">About</div>
+      <blockquote class="about-quote">
+        「溫暖情歌的美聲代表，<br>風格輕鬆愜意。」
+      </blockquote>
+      <p>
+        林鴻宇街頭演唱及網路翻唱發跡，累積超過十年音樂創作與現場演出經驗。
+        曾參與華納音樂 WIN 潛力新星計畫，主打單曲《想把空白的日子留給你》
+        在 KKBOX 即時榜奪冠，Spotify 總播放突破 400 萬次。
+      </p>
+      <p>
+        詞曲《我也明白》受盧廣仲邀請收錄於 2025 翻唱專輯《傷心早餐店》，
+        改名《我只怪我自己》。現正籌備第二張個人專輯。
+      </p>
+      <div class="traits">
+        <div class="trait">
+          <div class="trait-title">故事感唱腔</div>
+          <div class="trait-desc">詞曲創作者，兼具木吉他彈唱與 Demo 製作能力</div>
+        </div>
+        <div class="trait">
+          <div class="trait-title">現場實力</div>
+          <div class="trait-desc">十年演出經驗，現場表現穩定且持續產出</div>
+        </div>
+        <div class="trait">
+          <div class="trait-title">反差與並存</div>
+          <div class="trait-desc">憂鬱卻灑脫，細膩與調皮同時存在</div>
+        </div>
+        <div class="trait">
+          <div class="trait-title">陪伴系定位</div>
+          <div class="trait-desc">帶著憂鬱的浪漫，像日常中全碟循環的角色</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MUSIC -->
+  <section id="music">
+    <div class="section-label">Discography</div>
+    <h2 class="section-title">作品</h2>
+
+    <div class="album-grid">
+      <!-- 正規專輯 -->
+      <div class="album-card">
+        <div class="album-year">2024</div>
+        <div class="album-title">《相同的缺憾》</div>
+        <div class="album-type">首張正規專輯</div>
+        <ul class="album-tracks">
+          <li>相同的缺憾</li>
+          <li>美好的可能 <span class="collab-badge">feat. 雞丁</span></li>
+          <li>氾濫</li>
+          <li>無盡的海洋</li>
+          <li>朝九晚五</li>
+        </ul>
+      </div>
+
+      <!-- EP -->
+      <div class="album-card">
+        <div class="album-year">2021</div>
+        <div class="album-title">《相愛的這種本能》</div>
+        <div class="album-type">EP｜華納音樂 WIN 潛力新星計畫</div>
+        <ul class="album-tracks">
+          <li>你怎麼來了</li>
+          <li>想把空白的日子留給你 <span class="collab-badge">代表作</span></li>
+          <li>我也明白</li>
+        </ul>
+      </div>
+
+      <!-- 合作 -->
+      <div class="album-card">
+        <div class="album-year">2025</div>
+        <div class="album-title">《我只怪我自己》</div>
+        <div class="album-type">收錄於盧廣仲《傷心早餐店》翻唱專輯</div>
+        <ul class="album-tracks">
+          <li>我只怪我自己（原曲：我也明白）<span class="collab-badge">盧廣仲</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 單曲 -->
+    <div class="singles-title">重要單曲</div>
+    <div class="singles-grid">
+      <span class="single-tag highlight">視而不見（2025）</span>
+      <span class="single-tag">其實你不能夠愛我</span>
+      <span class="single-tag">你有你的冬天</span>
+      <span class="single-tag">心動 feat. 吳汶芳</span>
+      <span class="single-tag">騎著車載走 ft. Everydaze</span>
+      <span class="single-tag">天蠍座-日光版</span>
+      <span class="single-tag">等著你醒過來</span>
+      <span class="single-tag">小人物之星</span>
+      <span class="single-tag">逃進你的夢裡睡了一會</span>
+      <span class="single-tag">無名</span>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section id="stats">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-num">1.1<span class="stat-unit">M+</span></div>
+        <div class="stat-label">Spotify 播放</div>
+        <div class="stat-sub">〈想把空白的日子留給你〉</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">400<span class="stat-unit">萬+</span></div>
+        <div class="stat-label">總串流播放</div>
+        <div class="stat-sub">跨平台累計</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">910<span class="stat-unit">k+</span></div>
+        <div class="stat-label">StreetVoice 收聽</div>
+        <div class="stat-sub">平台高黏著度</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">50<span class="stat-unit">k+</span></div>
+        <div class="stat-label">Spotify 月聽眾峰值</div>
+        <div class="stat-sub"></div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">No.1</div>
+        <div class="stat-label">KKBOX 即時榜冠軍</div>
+        <div class="stat-sub">Hito 中文榜 No.6</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">10<span class="stat-unit">年</span></div>
+        <div class="stat-label">創作演出經驗</div>
+        <div class="stat-sub">超過十所大專校園演出</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE -->
+  <section id="live">
+    <div class="section-label">Live</div>
+    <h2 class="section-title">演出</h2>
+
+    <!-- 2025 -->
+    <div class="live-year-group">
+      <div class="live-year">2025</div>
+      <div class="live-events">
+        <div class="live-event">
+          <div>
+            <div class="live-event-name">
+              【水系男孩の浪漫】北中南巡演
+              <span class="live-badge upcoming">即將演出</span>
+            </div>
+            <div class="live-event-venue">高雄 Loi了咖啡 → 台中 Legacy → 台北 後台 BackStage Café</div>
+          </div>
+          <div class="live-event-date">6.14 / 6.15 / 6.21</div>
+        </div>
+        <div class="live-event">
+          <div>
+            <div class="live-event-name">
+              DigiWave 光島音樂祭
+              <span class="live-badge festival">音樂節</span>
+            </div>
+            <div class="live-event-venue">高雄</div>
+          </div>
+          <div class="live-event-date">2025</div>
+        </div>
+        <div class="live-event">
+          <div>
+            <div class="live-event-name">國泰家庭日</div>
+            <div class="live-event-venue">商業演出</div>
+          </div>
+          <div class="live-event-date">2025</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 售票專場紀錄 -->
+    <div class="live-year-group">
+      <div class="live-year">Past</div>
+      <div class="live-events">
+        <div class="live-event">
+          <div>
+            <div class="live-event-name">《相同的缺憾》專輯發片專場</div>
+            <div class="live-event-venue">公館 The Wall</div>
+          </div>
+          <div class="live-event-date">2024</div>
+        </div>
+        <div class="live-event">
+          <div>
+            <div class="live-event-name">《潮汐與你之間》專場</div>
+            <div class="live-event-venue">樂悠悠之口</div>
+          </div>
+          <div class="live-event-date">2023</div>
+        </div>
+        <div class="live-event">
+          <div>
+            <div class="live-event-name">《逃進你的夢裡睡了一會》</div>
+            <div class="live-event-venue">華山 Legacy Taipei</div>
+          </div>
+          <div class="live-event-date">2022</div>
+        </div>
+        <div class="live-event">
+          <div>
+            <div class="live-event-name">售票專場</div>
+            <div class="live-event-venue">小地方展演空間</div>
+          </div>
+          <div class="live-event-date">2021</div>
+        </div>
+        <div class="live-event">
+          <div>
+            <div class="live-event-name">《小人物之星》專場</div>
+            <div class="live-event-venue">西門 河岸留言</div>
+          </div>
+          <div class="live-event-date">2019</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESS -->
+  <section id="press">
+    <div class="section-label">Press</div>
+    <h2 class="section-title">媒體評語</h2>
+    <div class="press-quotes">
+      <div class="press-card">
+        <p class="press-text">林鴻宇的定位非常難得，像是在日常中全碟循環的陪伴角色。</p>
+        <div class="press-source">VOcus 樂評</div>
+      </div>
+      <div class="press-card">
+        <p class="press-text">溫暖情歌的美聲代表，風格輕鬆愜意。</p>
+        <div class="press-source">PlayMusic</div>
+      </div>
+      <div class="press-card">
+        <p class="press-text">擁有質感與層次聲線，溫暖又糾結。</p>
+        <div class="press-source">鏡週刊</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <img src="images/portfolio_p8_img2.png" alt="林鴻宇 吉他演出"
+      style="width:180px;height:180px;object-fit:cover;object-position:top;border-radius:50%;border:2px solid rgba(255,255,255,0.15);margin-bottom:2rem;display:block;margin-left:auto;margin-right:auto;" />
+    <div class="section-label" style="justify-content:center">Contact</div>
+    <h2 class="contact-title">一起創作些什麼</h2>
+    <p class="contact-sub">演出邀約・創作合作・媒體採訪</p>
+    <div class="social-links">
+      <a class="social-link" href="https://portaly.cc/HungYu" target="_blank">🔗 Portaly / 所有連結</a>
+      <a class="social-link" href="https://www.instagram.com/hungyu1105" target="_blank">📸 Instagram</a>
+      <a class="social-link" href="https://www.facebook.com/林鴻宇" target="_blank">📘 Facebook</a>
+      <a class="social-link" href="https://open.spotify.com" target="_blank">🎵 Spotify</a>
+    </div>
+    <p class="contact-email">
+      Email：<a href="mailto:hungyulin9@gmail.com">hungyulin9@gmail.com</a>
+    </p>
+  </section>
+
+  <footer>
+    © 2025 林鴻宇 Hung Yu Lin · All Rights Reserved
+  </footer>
+
+</body>
+</html>
