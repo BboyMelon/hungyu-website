@@ -115,6 +115,8 @@
       mask-image: linear-gradient(to left, rgba(0,0,0,0.9) 40%, transparent 100%);
       -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.9) 40%, transparent 100%);
       opacity: 0.85;
+      pointer-events: none;
+      z-index: 0;
     }
 
     .hero-tag {
@@ -126,6 +128,8 @@
       display: flex;
       align-items: center;
       gap: 0.8rem;
+      position: relative;
+      z-index: 2;
     }
 
     .hero-tag::before {
@@ -142,6 +146,8 @@
       letter-spacing: -0.01em;
       line-height: 1;
       color: var(--text);
+      position: relative;
+      z-index: 2;
     }
 
     .hero-name-en {
@@ -152,6 +158,8 @@
       color: var(--amber-soft);
       margin-top: 0.3rem;
       letter-spacing: 0.05em;
+      position: relative;
+      z-index: 2;
     }
 
     .hero-desc {
@@ -160,6 +168,8 @@
       color: var(--muted);
       font-size: 0.9rem;
       line-height: 2;
+      position: relative;
+      z-index: 2;
     }
 
     .hero-cta {
@@ -167,6 +177,8 @@
       display: flex;
       gap: 1.2rem;
       flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
     }
 
     .btn {
