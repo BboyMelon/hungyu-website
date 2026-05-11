@@ -527,6 +527,20 @@
       white-space: nowrap;
     }
 
+    .yt-link {
+      font-size: 0.58rem;
+      color: #cc0000;
+      border: 1px solid rgba(204,0,0,0.3);
+      padding: 0.1rem 0.4rem;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      margin-left: 0.4rem;
+      flex-shrink: 0;
+    }
+    .yt-link:hover { background: #cc0000; color: #fff; border-color: #cc0000; }
+
     .spotify-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -566,6 +580,8 @@
       font-size: 0.76rem;
       color: var(--muted);
       transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
     }
 
     .single-tag:hover { border-color: var(--blue); color: var(--blue); }
@@ -1064,7 +1080,7 @@
         <div class="album-title">《偌大的星》</div>
         <div class="album-type">單曲｜Sony Music Taiwan</div>
         <ul class="album-tracks">
-          <li>偌大的星 Enormous Stars <span class="collab-badge">最新</span></li>
+          <li>偌大的星 Enormous Stars <span class="collab-badge">最新</span><a class="yt-link" href="https://www.youtube.com/watch?v=FWzojGdi-lM" target="_blank">▶ MV</a></li>
         </ul>
       </div>
       <div class="album-card fade-up">
@@ -1072,11 +1088,11 @@
         <div class="album-title">《相同的缺憾》</div>
         <div class="album-type">首張正規專輯</div>
         <ul class="album-tracks">
-          <li>相同的缺憾</li>
-          <li>美好的可能 <span class="collab-badge">feat. 雞丁</span></li>
-          <li>氾濫</li>
-          <li>無盡的海洋</li>
-          <li>朝九晚五</li>
+          <li>相同的缺憾<a class="yt-link" href="https://www.youtube.com/watch?v=rZGyVv_N0c4" target="_blank">▶ MV</a></li>
+          <li>美好的可能 <span class="collab-badge">feat. 雞丁</span><a class="yt-link" href="https://www.youtube.com/watch?v=omNeIvQR5TQ" target="_blank">▶ MV</a></li>
+          <li>氾濫<a class="yt-link" href="https://www.youtube.com/watch?v=S8anXtPCQDk" target="_blank">▶ MV</a></li>
+          <li>無盡的海洋<a class="yt-link" href="https://www.youtube.com/watch?v=1--M6ganiSY" target="_blank">▶ MV</a></li>
+          <li>朝九晚五<a class="yt-link" href="https://www.youtube.com/watch?v=Sg1DCbdO1fk" target="_blank">▶ MV</a></li>
         </ul>
       </div>
       <div class="album-card fade-up">
@@ -1084,9 +1100,9 @@
         <div class="album-title">《相愛的這種本能》</div>
         <div class="album-type">EP｜華納音樂 WIN 潛力新星計畫</div>
         <ul class="album-tracks">
-          <li>你怎麼來了</li>
-          <li>想把空白的日子留給你 <span class="collab-badge">代表作</span></li>
-          <li>我也明白</li>
+          <li>你怎麼來了<a class="yt-link" href="https://www.youtube.com/watch?v=nVFo9R4fHZ8" target="_blank">▶ MV</a></li>
+          <li>想把空白的日子留給你 <span class="collab-badge">代表作</span><a class="yt-link" href="https://www.youtube.com/watch?v=LlvgyVZ0rSo" target="_blank">▶ MV</a></li>
+          <li>我也明白<a class="yt-link" href="https://www.youtube.com/watch?v=H05F-KeYO_M" target="_blank">▶ MV</a></li>
         </ul>
       </div>
       <div class="album-card fade-up">
@@ -1121,16 +1137,16 @@
     <div class="singles-wrap fade-up">
       <div class="singles-label">重要單曲</div>
       <div class="singles-grid">
-        <span class="single-tag new">視而不見（2025）</span>
-        <span class="single-tag new">偌大的星（2026）</span>
-        <span class="single-tag">其實你不能夠愛我</span>
-        <span class="single-tag">你有你的冬天</span>
-        <span class="single-tag">心動 feat. 吳汶芳</span>
-        <span class="single-tag">騎著車載走 ft. Everydaze</span>
-        <span class="single-tag">天蠍座-日光版</span>
-        <span class="single-tag">等著你醒過來</span>
-        <span class="single-tag">小人物之星</span>
-        <span class="single-tag">逃進你的夢裡睡了一會</span>
+        <a class="single-tag new" href="https://www.youtube.com/watch?v=QxcmrKEss8U" target="_blank">視而不見（2025）▶</a>
+        <a class="single-tag new" href="https://www.youtube.com/watch?v=FWzojGdi-lM" target="_blank">偌大的星（2026）▶</a>
+        <a class="single-tag" href="https://www.youtube.com/watch?v=2lX7Ib6SbXU" target="_blank">其實你不能夠愛我 ▶</a>
+        <a class="single-tag" href="https://www.youtube.com/watch?v=QwSs2EoRPN8" target="_blank">你有你的冬天 ▶</a>
+        <a class="single-tag" href="https://www.youtube.com/watch?v=Izltn1nh5qM" target="_blank">心動 feat. 吳汶芳 ▶</a>
+        <a class="single-tag" href="https://www.youtube.com/watch?v=pyZvU1T50Jw" target="_blank">騎著車載走 ft. Everydaze ▶</a>
+        <a class="single-tag" href="https://www.youtube.com/watch?v=N6h3LciR6o0" target="_blank">天蠍座-日光版 ▶</a>
+        <a class="single-tag" href="https://www.youtube.com/watch?v=L3FdaG-VbKE" target="_blank">等著你醒過來 ▶</a>
+        <a class="single-tag" href="https://www.youtube.com/watch?v=TxVrsU7wCcQ" target="_blank">小人物之星 ▶</a>
+        <a class="single-tag" href="https://www.youtube.com/watch?v=IailIOqZ0_Q" target="_blank">逃進你的夢裡睡了一會 ▶</a>
       </div>
     </div>
   </section>
