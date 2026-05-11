@@ -814,6 +814,18 @@
       box-shadow: 0 12px 30px rgba(37,99,200,0.08);
     }
 
+    .press-thumb {
+      width: calc(100% + 4rem);
+      margin: -2.5rem -2rem 1.5rem -2rem;
+      aspect-ratio: 16/7;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      opacity: 0.88;
+      transition: opacity 0.3s;
+    }
+    .press-card:hover .press-thumb { opacity: 1; }
+
     .press-quote-mark {
       font-family: 'Cormorant Garamond', serif;
       font-size: 5rem;
@@ -1250,16 +1262,19 @@
     <h2 class="section-title fade-up">媒體評語</h2>
     <div class="press-grid">
       <a class="press-card fade-up" href="https://vocus.cc/article/6325ebf6fd897800018d820a" target="_blank">
+        <img class="press-thumb" src="https://images.vocus.cc/ab98fb1d-066a-4936-8563-f7d183a1e6c5.jpg" alt="VOcus 林鴻宇樂評" />
         <span class="press-quote-mark">"</span>
         <p class="press-text">林鴻宇的定位非常難得，像是在日常中全碟循環的陪伴角色。</p>
         <div class="press-source">VOcus 樂評 →</div>
       </a>
       <a class="press-card fade-up" href="https://www.playmusic.tw/music_critics.php" target="_blank">
+        <img class="press-thumb" src="https://img.youtube.com/vi/omNeIvQR5TQ/maxresdefault.jpg" alt="PlayMusic 林鴻宇" />
         <span class="press-quote-mark">"</span>
         <p class="press-text">溫暖情歌的美聲代表，風格輕鬆愜意。</p>
         <div class="press-source">PlayMusic →</div>
       </a>
       <a class="press-card fade-up" href="https://www.mirrormedia.mg/story/20200826ent030/" target="_blank">
+        <img class="press-thumb" src="https://v3-statics.mirrormedia.mg/images/20200826184121-ca629f435be07f909d5419b1321996f5-w1600.jpg" alt="鏡週刊 林鴻宇報導" />
         <span class="press-quote-mark">"</span>
         <p class="press-text">擁有質感與層次聲線，溫暖又糾結。</p>
         <div class="press-source">鏡週刊 →</div>
@@ -1269,7 +1284,7 @@
 
   <!-- CONTACT -->
   <section id="contact">
-    <img class="contact-avatar" src="images/portfolio_p8_img2.png" alt="林鴻宇" />
+    <img class="contact-avatar" src="images/enormous_stars_promo.jpg" alt="林鴻宇《偌大的星》" />
     <div class="contact-label">Contact</div>
     <h2 class="contact-title">一起創作些什麼</h2>
     <p class="contact-sub">演出邀約・創作合作・媒體採訪</p>
