@@ -340,10 +340,23 @@
     }
 
     /* ── ABOUT ── */
-    #about {
-      background: var(--bg2);
-      max-width: 820px;
-      margin: 0 auto;
+    #about { background: var(--bg2); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-sidebar-deco {
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px dotted rgba(37,99,200,0.3);
     }
 
     .about-photo-wrap { position: relative; }
@@ -398,26 +411,27 @@
     }
 
     .traits {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      margin-top: 0;
     }
 
     .trait {
-      padding: 1.3rem;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.7);
-      transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
+      padding: 0.9rem 0.6rem;
+      border-top: 1px dotted var(--border);
+      background: none;
+      border-left: 2px solid transparent;
+      transition: border-left-color 0.25s, padding-left 0.25s;
     }
+
+    .trait:last-child { border-bottom: 1px dotted var(--border); }
 
     .trait:hover {
-      border-color: rgba(37,99,200,0.3);
-      background: rgba(37,99,200,0.04);
-      box-shadow: 0 6px 20px rgba(37,99,200,0.08);
+      border-left-color: var(--blue);
+      padding-left: 1rem;
+      background: none;
+      box-shadow: none;
     }
-
-    .trait-icon { font-size: 1.2rem; margin-bottom: 0.5rem; }
 
     .trait-title {
       font-size: 0.78rem;
@@ -613,6 +627,88 @@
       color: var(--blue-soft);
     }
 
+    /* ── FEATURED RELEASE ── */
+    .featured-release {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      background: var(--text);
+      padding: 2.8rem 3.5rem;
+      margin-bottom: 1px;
+    }
+
+    .featured-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 0.7rem;
+    }
+
+    .featured-title {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: #fff;
+    }
+
+    .featured-title em {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.65em;
+      font-weight: 300;
+      font-style: italic;
+      margin-left: 0.6rem;
+      color: rgba(189,214,248,0.55);
+    }
+
+    .featured-release-right { display: flex; gap: 0.8rem; flex-shrink: 0; }
+
+    .featured-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.6rem 1.4rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      border: 1px solid;
+      transition: all 0.22s;
+      white-space: nowrap;
+      font-family: 'Noto Serif TC', serif;
+    }
+
+    .featured-btn.sp { border-color: #1DB954; color: #1DB954; }
+    .featured-btn.sp:hover { background: #1DB954; color: #000; }
+    .featured-btn.yt { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.7); }
+    .featured-btn.yt:hover { border-color: #fff; color: #fff; }
+
+    /* ── ALBUM LIST (編輯式) ── */
+    .album-list {
+      border-top: 1px dotted var(--border);
+      margin-bottom: 4rem;
+    }
+
+    .album-entry {
+      border-bottom: 1px dotted var(--border);
+      padding: 2rem 0;
+    }
+
+    .album-entry-header {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 1.5rem;
+      align-items: baseline;
+      margin-bottom: 1rem;
+    }
+
+    .album-entry-year {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      color: rgba(37,99,200,0.2);
+      line-height: 1;
+    }
+
     /* ── STATS ── */
     #stats {
       background: var(--bg2);
@@ -800,54 +896,51 @@
     #press { background: var(--bg2); }
 
     .press-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      border-top: 1px dotted var(--border);
     }
 
     .press-card {
-      padding: 2.5rem 2rem;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.7);
-      position: relative;
-      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 2.5rem;
+      align-items: start;
+      padding: 2.5rem 0;
+      border-bottom: 1px dotted var(--border);
+      background: none;
       text-decoration: none;
       color: inherit;
-      display: block;
+      transition: opacity 0.25s;
     }
 
     .press-card:hover {
-      border-color: rgba(37,99,200,0.25);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(37,99,200,0.08);
+      opacity: 0.82;
+      transform: none;
+      box-shadow: none;
     }
 
     .press-thumb {
-      width: calc(100% + 4rem);
-      margin: -2.5rem -2rem 1.5rem -2rem;
-      aspect-ratio: 16/7;
+      width: 100%;
+      aspect-ratio: 16/9;
       object-fit: cover;
       object-position: center;
       display: block;
-      opacity: 0.88;
-      transition: opacity 0.3s;
+      opacity: 0.9;
+      margin: 0;
+      transition: opacity 0.25s;
     }
     .press-card:hover .press-thumb { opacity: 1; }
 
-    .press-quote-mark {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 5rem;
-      line-height: 0.8;
-      color: rgba(37,99,200,0.1);
-      display: block;
-      margin-bottom: 1rem;
-    }
+    .press-content { padding-top: 0.2rem; }
+
+    .press-quote-mark { display: none; }
 
     .press-text {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       line-height: 1.85;
       color: var(--text);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
     }
 
     .press-source {
@@ -993,6 +1086,9 @@
       section { padding: 6rem 4rem; }
       #stats { padding: 5rem 4rem; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .featured-release { padding: 2rem 2.5rem; }
+      .press-card { grid-template-columns: 180px 1fr; gap: 2rem; }
     }
 
     @media (max-width: 768px) {
@@ -1003,17 +1099,19 @@
       .hero-content { max-width: 100%; }
       .hero-photo { opacity: 0.25; width: 100%; }
       section { padding: 5rem 2rem; }
-      #about { grid-template-columns: 1fr; gap: 3rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
       #contact { padding: 6rem 2rem; }
       .spotify-grid { grid-template-columns: 1fr; }
       .upcoming-dates { flex-direction: column; }
+      .featured-release { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 2rem; }
+      .press-card { grid-template-columns: 1fr; gap: 1rem; }
     }
 
     @media (max-width: 480px) {
-      .stats-grid { grid-template-columns: 1fr 1fr; }
-      .traits { grid-template-columns: 1fr; }
       .hero-name-zh { font-size: clamp(3rem, 15vw, 5rem); }
+      .album-entry-header { grid-template-columns: 50px 1fr; gap: 1rem; }
+      .album-entry-year { font-size: 1.4rem; }
     }
   </style>
 </head>
@@ -1067,37 +1165,44 @@
 
   <!-- ABOUT -->
   <section id="about">
-    <div class="about-text">
-      <div class="section-eyebrow fade-up"><span>About</span></div>
-      <blockquote class="about-quote fade-up">
-        「溫暖情歌的美聲代表，<br>風格輕鬆愜意。」
-      </blockquote>
-      <p class="fade-up">
-        林鴻宇街頭演唱及網路翻唱發跡，累積超過十年音樂創作與現場演出經驗。
-        曾參與華納音樂 WIN 潛力新星計畫，主打單曲《想把空白的日子留給你》
-        在 KKBOX 即時榜奪冠，Spotify 總播放突破 400 萬次。
-      </p>
-      <p class="fade-up">
-        詞曲《我也明白》受盧廣仲邀請收錄於 2025 翻唱專輯《傷心早餐店》，
-        改名《我只怪我自己》。2026 年與 Sony Music Taiwan 合作，
-        發行全新單曲《偌大的星 Enormous Stars》，持續深化陪伴系音樂定位。
-      </p>
-      <div class="traits">
-        <div class="trait fade-up">
-          <div class="trait-title">故事感唱腔</div>
-          <div class="trait-desc">詞曲創作者，兼具木吉他彈唱與 Demo 製作能力</div>
+    <div class="about-grid">
+      <div class="about-main">
+        <div class="section-eyebrow fade-up"><span>About</span></div>
+        <blockquote class="about-quote fade-up">
+          「溫暖情歌的美聲代表，<br>風格輕鬆愜意。」
+        </blockquote>
+        <div class="about-text">
+          <p class="fade-up">
+            林鴻宇街頭演唱及網路翻唱發跡，累積超過十年音樂創作與現場演出經驗。
+            曾參與華納音樂 WIN 潛力新星計畫，主打單曲《想把空白的日子留給你》
+            在 KKBOX 即時榜奪冠，Spotify 總播放突破 400 萬次。
+          </p>
+          <p class="fade-up">
+            詞曲《我也明白》受盧廣仲邀請收錄於 2025 翻唱專輯《傷心早餐店》，
+            改名《我只怪我自己》。2026 年與 Sony Music Taiwan 合作，
+            發行全新單曲《偌大的星 Enormous Stars》，持續深化陪伴系音樂定位。
+          </p>
         </div>
-        <div class="trait fade-up">
-          <div class="trait-title">現場實力</div>
-          <div class="trait-desc">十年演出經驗，現場表現穩定且持續產出</div>
-        </div>
-        <div class="trait fade-up">
-          <div class="trait-title">反差與並存</div>
-          <div class="trait-desc">憂鬱卻灑脫，細膩與調皮同時存在</div>
-        </div>
-        <div class="trait fade-up">
-          <div class="trait-title">陪伴系定位</div>
-          <div class="trait-desc">帶著憂鬱的浪漫，像日常中全碟循環的角色</div>
+      </div>
+      <div class="about-sidebar fade-up">
+        <div class="about-sidebar-deco">藝人特質</div>
+        <div class="traits">
+          <div class="trait">
+            <div class="trait-title">故事感唱腔</div>
+            <div class="trait-desc">詞曲創作者，兼具木吉他彈唱與 Demo 製作能力</div>
+          </div>
+          <div class="trait">
+            <div class="trait-title">現場實力</div>
+            <div class="trait-desc">十年演出經驗，現場表現穩定且持續產出</div>
+          </div>
+          <div class="trait">
+            <div class="trait-title">反差與並存</div>
+            <div class="trait-desc">憂鬱卻灑脫，細膩與調皮同時存在</div>
+          </div>
+          <div class="trait">
+            <div class="trait-title">陪伴系定位</div>
+            <div class="trait-desc">帶著憂鬱的浪漫，像日常中全碟循環的角色</div>
+          </div>
         </div>
       </div>
     </div>
@@ -1108,27 +1213,28 @@
     <div class="section-eyebrow fade-up"><span>Discography</span></div>
     <h2 class="section-title fade-up">作品</h2>
 
-    <div class="album-grid">
-      <div class="album-card fade-up">
-        <div class="album-year">2026</div>
-        <div class="album-title">《偌大的星》</div>
-        <div class="album-type">單曲｜Sony Music Taiwan</div>
-        <ul class="album-tracks">
-          <li><span class="track-name">偌大的星</span><span class="collab-badge">最新</span><a class="sp-link" href="https://open.spotify.com/track/0jni5AxfCjk5Mgdpz0pTp2" target="_blank">♫</a><a class="yt-link" href="https://www.youtube.com/watch?v=FWzojGdi-lM" target="_blank">▶</a></li>
-        </ul>
+    <!-- 最新發行：全幅 Featured -->
+    <div class="featured-release fade-up">
+      <div>
+        <div class="featured-label">最新發行 · 2026 · Sony Music Taiwan</div>
+        <div class="featured-title">《偌大的星》<em>Enormous Stars</em></div>
       </div>
-      <div class="album-card fade-up">
-        <div class="album-year">2025</div>
-        <div class="album-title">《我只怪我自己》</div>
-        <div class="album-type">收錄於盧廣仲《傷心早餐店》</div>
-        <ul class="album-tracks">
-          <li><span class="track-name">我只怪我自己</span><span class="collab-badge">盧廣仲</span><a class="sp-link" href="https://open.spotify.com/track/4Kmcnuj1YZiBbuFR5wbClJ" target="_blank">♫</a></li>
-        </ul>
+      <div class="featured-release-right">
+        <a class="featured-btn sp" href="https://open.spotify.com/track/0jni5AxfCjk5Mgdpz0pTp2" target="_blank">♫ Spotify</a>
+        <a class="featured-btn yt" href="https://www.youtube.com/watch?v=FWzojGdi-lM" target="_blank">▶ MV</a>
       </div>
-      <div class="album-card fade-up">
-        <div class="album-year">2024</div>
-        <div class="album-title">《相同的缺憾》</div>
-        <div class="album-type">首張正規專輯</div>
+    </div>
+
+    <!-- 過往作品：編輯式列表 -->
+    <div class="album-list">
+      <div class="album-entry fade-up">
+        <div class="album-entry-header">
+          <div class="album-entry-year">2024</div>
+          <div>
+            <div class="album-title">《相同的缺憾》</div>
+            <div class="album-type">首張正規專輯</div>
+          </div>
+        </div>
         <ul class="album-tracks">
           <li><span class="track-name">相同的缺憾</span><a class="sp-link" href="https://open.spotify.com/track/3rM9zESfGk4wXZWlz90L36" target="_blank">♫</a><a class="yt-link" href="https://www.youtube.com/watch?v=rZGyVv_N0c4" target="_blank">▶</a></li>
           <li><span class="track-name">美好的可能</span><span class="collab-badge">feat. 雞丁</span><a class="sp-link" href="https://open.spotify.com/track/0FG20sELTemtK7LssJ4Ed0" target="_blank">♫</a><a class="yt-link" href="https://www.youtube.com/watch?v=omNeIvQR5TQ" target="_blank">▶</a></li>
@@ -1137,10 +1243,26 @@
           <li><span class="track-name">朝九晚五</span><a class="sp-link" href="https://open.spotify.com/track/0AR4iWTvVzZ4tx4OMi9UZn" target="_blank">♫</a><a class="yt-link" href="https://www.youtube.com/watch?v=Sg1DCbdO1fk" target="_blank">▶</a></li>
         </ul>
       </div>
-      <div class="album-card fade-up">
-        <div class="album-year">2021</div>
-        <div class="album-title">《相愛的這種本能》</div>
-        <div class="album-type">EP｜華納音樂 WIN 潛力新星計畫</div>
+      <div class="album-entry fade-up">
+        <div class="album-entry-header">
+          <div class="album-entry-year">2025</div>
+          <div>
+            <div class="album-title">《我只怪我自己》</div>
+            <div class="album-type">收錄於盧廣仲《傷心早餐店》</div>
+          </div>
+        </div>
+        <ul class="album-tracks">
+          <li><span class="track-name">我只怪我自己</span><span class="collab-badge">盧廣仲</span><a class="sp-link" href="https://open.spotify.com/track/4Kmcnuj1YZiBbuFR5wbClJ" target="_blank">♫</a></li>
+        </ul>
+      </div>
+      <div class="album-entry fade-up">
+        <div class="album-entry-header">
+          <div class="album-entry-year">2021</div>
+          <div>
+            <div class="album-title">《相愛的這種本能》</div>
+            <div class="album-type">EP｜華納音樂 WIN 潛力新星計畫</div>
+          </div>
+        </div>
         <ul class="album-tracks">
           <li><span class="track-name">你怎麼來了</span><a class="sp-link" href="https://open.spotify.com/track/0A9nF9XzvZOdAOxYoPCfYY" target="_blank">♫</a><a class="yt-link" href="https://www.youtube.com/watch?v=nVFo9R4fHZ8" target="_blank">▶</a></li>
           <li><span class="track-name">想把空白的日子留給你</span><span class="collab-badge">代表作</span><a class="sp-link" href="https://open.spotify.com/track/4Mw26chMpfO6JvbFgFpKUF" target="_blank">♫</a><a class="yt-link" href="https://www.youtube.com/watch?v=LlvgyVZ0rSo" target="_blank">▶</a></li>
@@ -1271,21 +1393,24 @@
     <div class="press-grid">
       <a class="press-card fade-up" href="https://vocus.cc/article/6325ebf6fd897800018d820a" target="_blank">
         <img class="press-thumb" src="images/press_vocus.jpg" alt="VOcus 林鴻宇樂評" />
-        <span class="press-quote-mark">"</span>
-        <p class="press-text">林鴻宇的定位非常難得，像是在日常中全碟循環的陪伴角色。</p>
-        <div class="press-source">VOcus 樂評 →</div>
+        <div class="press-content">
+          <p class="press-text">林鴻宇的定位非常難得，像是在日常中全碟循環的陪伴角色。</p>
+          <div class="press-source">VOcus 樂評 →</div>
+        </div>
       </a>
       <a class="press-card fade-up" href="https://www.playmusic.tw/music_critics.php" target="_blank">
         <img class="press-thumb" src="https://img.youtube.com/vi/omNeIvQR5TQ/maxresdefault.jpg" alt="PlayMusic 林鴻宇" />
-        <span class="press-quote-mark">"</span>
-        <p class="press-text">溫暖情歌的美聲代表，風格輕鬆愜意。</p>
-        <div class="press-source">PlayMusic →</div>
+        <div class="press-content">
+          <p class="press-text">溫暖情歌的美聲代表，風格輕鬆愜意。</p>
+          <div class="press-source">PlayMusic →</div>
+        </div>
       </a>
       <a class="press-card fade-up" href="https://www.mirrormedia.mg/story/20200826ent030/" target="_blank">
         <img class="press-thumb" src="images/press_mirror.jpg" alt="鏡週刊 林鴻宇報導" />
-        <span class="press-quote-mark">"</span>
-        <p class="press-text">擁有質感與層次聲線，溫暖又糾結。</p>
-        <div class="press-source">鏡週刊 →</div>
+        <div class="press-content">
+          <p class="press-text">擁有質感與層次聲線，溫暖又糾結。</p>
+          <div class="press-source">鏡週刊 →</div>
+        </div>
       </a>
     </div>
   </section>
