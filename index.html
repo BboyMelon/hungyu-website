@@ -517,41 +517,49 @@
       flex-shrink: 0;
     }
 
+    .track-name {
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
     .collab-badge {
-      margin-left: auto;
       font-size: 0.6rem;
       color: var(--blue);
       border: 1px solid rgba(37,99,200,0.4);
       padding: 0.1rem 0.45rem;
       letter-spacing: 0.05em;
       white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .yt-link {
-      font-size: 0.58rem;
+      font-size: 0.7rem;
       color: #cc0000;
       border: 1px solid rgba(204,0,0,0.3);
-      padding: 0.1rem 0.4rem;
-      letter-spacing: 0.04em;
+      padding: 0.08rem 0.35rem;
       white-space: nowrap;
       text-decoration: none;
       transition: background 0.2s, color 0.2s;
-      margin-left: 0.4rem;
+      margin-left: 0.3rem;
       flex-shrink: 0;
+      line-height: 1.4;
     }
     .yt-link:hover { background: #cc0000; color: #fff; border-color: #cc0000; }
 
     .sp-link {
-      font-size: 0.58rem;
+      font-size: 0.7rem;
       color: #1db954;
       border: 1px solid rgba(29,185,84,0.4);
-      padding: 0.1rem 0.4rem;
-      letter-spacing: 0.04em;
+      padding: 0.08rem 0.35rem;
       white-space: nowrap;
       text-decoration: none;
       transition: background 0.2s, color 0.2s;
-      margin-left: 0.4rem;
+      margin-left: 0.3rem;
       flex-shrink: 0;
+      line-height: 1.4;
     }
     .sp-link:hover { background: #1db954; color: #fff; border-color: #1db954; }
 
@@ -1106,7 +1114,7 @@
         <div class="album-title">《偌大的星》</div>
         <div class="album-type">單曲｜Sony Music Taiwan</div>
         <ul class="album-tracks">
-          <li>偌大的星 Enormous Stars <span class="collab-badge">最新</span><a class="sp-link" href="https://open.spotify.com/track/0jni5AxfCjk5Mgdpz0pTp2" target="_blank">♫ Spotify</a><a class="yt-link" href="https://www.youtube.com/watch?v=FWzojGdi-lM" target="_blank">▶ MV</a></li>
+          <li><span class="track-name">偌大的星</span><span class="collab-badge">最新</span><a class="sp-link" href="https://open.spotify.com/track/0jni5AxfCjk5Mgdpz0pTp2" target="_blank">♫</a><a class="yt-link" href="https://www.youtube.com/watch?v=FWzojGdi-lM" target="_blank">▶</a></li>
         </ul>
       </div>
       <div class="album-card fade-up">
@@ -1114,7 +1122,7 @@
         <div class="album-title">《我只怪我自己》</div>
         <div class="album-type">收錄於盧廣仲《傷心早餐店》</div>
         <ul class="album-tracks">
-          <li>我只怪我自己（原曲：我也明白）<span class="collab-badge">盧廣仲</span><a class="sp-link" href="https://open.spotify.com/track/4Kmcnuj1YZiBbuFR5wbClJ" target="_blank">♫ Spotify</a></li>
+          <li><span class="track-name">我只怪我自己</span><span class="collab-badge">盧廣仲</span><a class="sp-link" href="https://open.spotify.com/track/4Kmcnuj1YZiBbuFR5wbClJ" target="_blank">♫</a></li>
         </ul>
       </div>
       <div class="album-card fade-up">
@@ -1122,11 +1130,11 @@
         <div class="album-title">《相同的缺憾》</div>
         <div class="album-type">首張正規專輯</div>
         <ul class="album-tracks">
-          <li>相同的缺憾<a class="sp-link" href="https://open.spotify.com/track/3rM9zESfGk4wXZWlz90L36" target="_blank">♫ Spotify</a><a class="yt-link" href="https://www.youtube.com/watch?v=rZGyVv_N0c4" target="_blank">▶ MV</a></li>
-          <li>美好的可能 <span class="collab-badge">feat. 雞丁</span><a class="sp-link" href="https://open.spotify.com/track/0FG20sELTemtK7LssJ4Ed0" target="_blank">♫ Spotify</a><a class="yt-link" href="https://www.youtube.com/watch?v=omNeIvQR5TQ" target="_blank">▶ MV</a></li>
-          <li>氾濫<a class="sp-link" href="https://open.spotify.com/track/38AZYfhpLzrQn0ExRD3zBK" target="_blank">♫ Spotify</a><a class="yt-link" href="https://www.youtube.com/watch?v=S8anXtPCQDk" target="_blank">▶ MV</a></li>
-          <li>無盡的海洋<a class="sp-link" href="https://open.spotify.com/track/70t097htmJc0ERyZfBqOLZ" target="_blank">♫ Spotify</a><a class="yt-link" href="https://www.youtube.com/watch?v=1--M6ganiSY" target="_blank">▶ MV</a></li>
-          <li>朝九晚五<a class="sp-link" href="https://open.spotify.com/track/0AR4iWTvVzZ4tx4OMi9UZn" target="_blank">♫ Spotify</a><a class="yt-link" href="https://www.youtube.com/watch?v=Sg1DCbdO1fk" target="_blank">▶ MV</a></li>
+          <li><span class="track-name">相同的缺憾</span><a class="sp-link" href="https://open.spotify.com/track/3rM9zESfGk4wXZWlz90L36" target="_blank">♫</a><a class="yt-link" href="https://www.youtube.com/watch?v=rZGyVv_N0c4" target="_blank">▶</a></li>
+          <li><span class="track-name">美好的可能</span><span class="collab-badge">feat. 雞丁</span><a class="sp-link" href="https://open.spotify.com/track/0FG20sELTemtK7LssJ4Ed0" target="_blank">♫</a><a class="yt-link" href="https://www.youtube.com/watch?v=omNeIvQR5TQ" target="_blank">▶</a></li>
+          <li><span class="track-name">氾濫</span><a class="sp-link" href="https://open.spotify.com/track/38AZYfhpLzrQn0ExRD3zBK" target="_blank">♫</a><a class="yt-link" href="https://www.youtube.com/watch?v=S8anXtPCQDk" target="_blank">▶</a></li>
+          <li><span class="track-name">無盡的海洋</span><a class="sp-link" href="https://open.spotify.com/track/70t097htmJc0ERyZfBqOLZ" target="_blank">♫</a><a class="yt-link" href="https://www.youtube.com/watch?v=1--M6ganiSY" target="_blank">▶</a></li>
+          <li><span class="track-name">朝九晚五</span><a class="sp-link" href="https://open.spotify.com/track/0AR4iWTvVzZ4tx4OMi9UZn" target="_blank">♫</a><a class="yt-link" href="https://www.youtube.com/watch?v=Sg1DCbdO1fk" target="_blank">▶</a></li>
         </ul>
       </div>
       <div class="album-card fade-up">
@@ -1134,9 +1142,9 @@
         <div class="album-title">《相愛的這種本能》</div>
         <div class="album-type">EP｜華納音樂 WIN 潛力新星計畫</div>
         <ul class="album-tracks">
-          <li>你怎麼來了<a class="sp-link" href="https://open.spotify.com/track/0A9nF9XzvZOdAOxYoPCfYY" target="_blank">♫ Spotify</a><a class="yt-link" href="https://www.youtube.com/watch?v=nVFo9R4fHZ8" target="_blank">▶ MV</a></li>
-          <li>想把空白的日子留給你 <span class="collab-badge">代表作</span><a class="sp-link" href="https://open.spotify.com/track/4Mw26chMpfO6JvbFgFpKUF" target="_blank">♫ Spotify</a><a class="yt-link" href="https://www.youtube.com/watch?v=LlvgyVZ0rSo" target="_blank">▶ MV</a></li>
-          <li>我也明白<a class="sp-link" href="https://open.spotify.com/track/6OBXfAgxqNxXaZU2akwL58" target="_blank">♫ Spotify</a><a class="yt-link" href="https://www.youtube.com/watch?v=H05F-KeYO_M" target="_blank">▶ MV</a></li>
+          <li><span class="track-name">你怎麼來了</span><a class="sp-link" href="https://open.spotify.com/track/0A9nF9XzvZOdAOxYoPCfYY" target="_blank">♫</a><a class="yt-link" href="https://www.youtube.com/watch?v=nVFo9R4fHZ8" target="_blank">▶</a></li>
+          <li><span class="track-name">想把空白的日子留給你</span><span class="collab-badge">代表作</span><a class="sp-link" href="https://open.spotify.com/track/4Mw26chMpfO6JvbFgFpKUF" target="_blank">♫</a><a class="yt-link" href="https://www.youtube.com/watch?v=LlvgyVZ0rSo" target="_blank">▶</a></li>
+          <li><span class="track-name">我也明白</span><a class="sp-link" href="https://open.spotify.com/track/6OBXfAgxqNxXaZU2akwL58" target="_blank">♫</a><a class="yt-link" href="https://www.youtube.com/watch?v=H05F-KeYO_M" target="_blank">▶</a></li>
         </ul>
       </div>
     </div>
@@ -1262,7 +1270,7 @@
     <h2 class="section-title fade-up">媒體評語</h2>
     <div class="press-grid">
       <a class="press-card fade-up" href="https://vocus.cc/article/6325ebf6fd897800018d820a" target="_blank">
-        <img class="press-thumb" src="https://images.vocus.cc/ab98fb1d-066a-4936-8563-f7d183a1e6c5.jpg" alt="VOcus 林鴻宇樂評" />
+        <img class="press-thumb" src="images/press_vocus.jpg" alt="VOcus 林鴻宇樂評" />
         <span class="press-quote-mark">"</span>
         <p class="press-text">林鴻宇的定位非常難得，像是在日常中全碟循環的陪伴角色。</p>
         <div class="press-source">VOcus 樂評 →</div>
@@ -1274,7 +1282,7 @@
         <div class="press-source">PlayMusic →</div>
       </a>
       <a class="press-card fade-up" href="https://www.mirrormedia.mg/story/20200826ent030/" target="_blank">
-        <img class="press-thumb" src="https://v3-statics.mirrormedia.mg/images/20200826184121-ca629f435be07f909d5419b1321996f5-w1600.jpg" alt="鏡週刊 林鴻宇報導" />
+        <img class="press-thumb" src="images/press_mirror.jpg" alt="鏡週刊 林鴻宇報導" />
         <span class="press-quote-mark">"</span>
         <p class="press-text">擁有質感與層次聲線，溫暖又糾結。</p>
         <div class="press-source">鏡週刊 →</div>
