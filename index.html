@@ -697,7 +697,7 @@
       display: grid;
       grid-template-columns: 64px 1fr;
       gap: 1.5rem;
-      align-items: baseline;
+      align-items: start;
       margin-bottom: 1rem;
     }
 
@@ -708,6 +708,32 @@
       color: rgba(37,99,200,0.2);
       line-height: 1;
     }
+
+    .album-entry-info {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+    }
+
+    .album-cover {
+      width: 88px;
+      height: 88px;
+      object-fit: cover;
+      flex-shrink: 0;
+      opacity: 0.85;
+      transition: opacity 0.25s;
+    }
+    .album-entry:hover .album-cover { opacity: 1; }
+
+    .featured-cover {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      flex-shrink: 0;
+      opacity: 0.75;
+      transition: opacity 0.25s;
+    }
+    .featured-release:hover .featured-cover { opacity: 0.95; }
 
     /* ── STATS ── */
     #stats {
@@ -1215,6 +1241,7 @@
 
     <!-- 最新發行：全幅 Featured -->
     <div class="featured-release fade-up">
+      <img class="featured-cover" src="https://img.youtube.com/vi/FWzojGdi-lM/mqdefault.jpg" alt="偌大的星" />
       <div>
         <div class="featured-label">最新發行 · 2026 · Sony Music Taiwan</div>
         <div class="featured-title">《偌大的星》<em>Enormous Stars</em></div>
@@ -1230,9 +1257,12 @@
       <div class="album-entry fade-up">
         <div class="album-entry-header">
           <div class="album-entry-year">2024</div>
-          <div>
-            <div class="album-title">《相同的缺憾》</div>
-            <div class="album-type">首張正規專輯</div>
+          <div class="album-entry-info">
+            <img class="album-cover" src="https://img.youtube.com/vi/rZGyVv_N0c4/mqdefault.jpg" alt="相同的缺憾" />
+            <div>
+              <div class="album-title">《相同的缺憾》</div>
+              <div class="album-type">首張正規專輯</div>
+            </div>
           </div>
         </div>
         <ul class="album-tracks">
@@ -1246,9 +1276,12 @@
       <div class="album-entry fade-up">
         <div class="album-entry-header">
           <div class="album-entry-year">2025</div>
-          <div>
-            <div class="album-title">《我只怪我自己》</div>
-            <div class="album-type">收錄於盧廣仲《傷心早餐店》</div>
+          <div class="album-entry-info">
+            <img class="album-cover" src="https://img.youtube.com/vi/H05F-KeYO_M/mqdefault.jpg" alt="我只怪我自己" />
+            <div>
+              <div class="album-title">《我只怪我自己》</div>
+              <div class="album-type">收錄於盧廣仲《傷心早餐店》</div>
+            </div>
           </div>
         </div>
         <ul class="album-tracks">
@@ -1258,9 +1291,12 @@
       <div class="album-entry fade-up">
         <div class="album-entry-header">
           <div class="album-entry-year">2021</div>
-          <div>
-            <div class="album-title">《相愛的這種本能》</div>
-            <div class="album-type">EP｜華納音樂 WIN 潛力新星計畫</div>
+          <div class="album-entry-info">
+            <img class="album-cover" src="https://img.youtube.com/vi/LlvgyVZ0rSo/mqdefault.jpg" alt="相愛的這種本能 EP" />
+            <div>
+              <div class="album-title">《相愛的這種本能》</div>
+              <div class="album-type">EP｜華納音樂 WIN 潛力新星計畫</div>
+            </div>
           </div>
         </div>
         <ul class="album-tracks">
