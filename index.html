@@ -204,14 +204,31 @@
     .new-single-badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.6rem;
-      padding: 0.5rem 1.1rem;
-      border: 1px solid rgba(37,99,200,0.25);
-      background: rgba(37,99,200,0.05);
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
+      gap: 0.7rem;
+      padding: 0.65rem 1.3rem;
+      border: 1px solid rgba(37,99,200,0.35);
+      background: rgba(37,99,200,0.06);
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
       color: var(--blue);
       margin-bottom: 1.5rem;
+      text-decoration: none;
+      transition: background 0.25s, border-color 0.25s;
+      font-family: 'Noto Serif TC', serif;
+      font-weight: 400;
+    }
+    .new-single-badge:hover {
+      background: rgba(37,99,200,0.1);
+      border-color: var(--blue);
+    }
+    .new-single-badge .badge-arrow {
+      font-size: 1rem;
+      opacity: 0.6;
+      transition: transform 0.25s, opacity 0.25s;
+    }
+    .new-single-badge:hover .badge-arrow {
+      transform: translateX(4px);
+      opacity: 1;
     }
 
     .new-single-badge .dot {
@@ -1164,10 +1181,11 @@
         <div class="hero-eyebrow-line"></div>
         <span class="hero-eyebrow-text">陪伴系療癒歌手・獨立音樂創作人</span>
       </div>
-      <div class="new-single-badge">
+      <a class="new-single-badge" href="#music">
         <span class="dot"></span>
         NEW · 《偌大的星 Enormous Stars》2026.05.08 上架
-      </div>
+        <span class="badge-arrow">›</span>
+      </a>
       <h1 class="hero-name-zh">林鴻宇</h1>
       <p class="hero-name-en">Hung Yu Lin</p>
       <div class="hero-divider"></div>
