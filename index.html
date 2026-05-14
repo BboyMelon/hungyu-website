@@ -53,6 +53,57 @@
       transition: background 0.4s, padding 0.4s, box-shadow 0.4s;
     }
 
+    /* hamburger */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 44px; height: 44px;
+      background: none; border: none;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 301;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px; height: 1.5px;
+      background: var(--text);
+      transition: transform 0.3s, opacity 0.3s;
+      transform-origin: center;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* mobile menu overlay */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(16px);
+      z-index: 300;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      padding: 0.5rem 1.5rem;
+      min-height: 44px;
+      display: flex; align-items: center;
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--blue); }
+
     nav.scrolled {
       background: rgba(255,255,255,0.92);
       backdrop-filter: blur(14px);
@@ -102,7 +153,7 @@
 
     /* ── HERO ── */
     #hero {
-      min-height: 100vh;
+      min-height: 100svh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -1193,23 +1244,78 @@
       nav { padding: 1rem 1.5rem; }
       nav.scrolled { padding: 0.7rem 1.5rem; }
       .nav-links { display: none; }
-      #hero { padding: 0 2rem; }
+      .nav-hamburger { display: flex; }
+
+      #hero { padding: 0 1.5rem; padding-top: 5rem; }
       .hero-content { max-width: 100%; }
-      .hero-photo { opacity: 0.25; width: 100%; }
-      section { padding: 5rem 2rem; }
+      .hero-photo { opacity: 0.18; width: 100%; }
+      .hero-eyebrow-text { font-size: 0.75rem; letter-spacing: 0.16em; }
+      .hero-desc { font-size: 1rem; line-height: 1.8; }
+      .hero-cta { flex-wrap: wrap; gap: 0.8rem; }
+      .btn { font-size: 0.85rem; padding: 0.9rem 1.4rem; min-height: 44px; }
+
+      section { padding: 4rem 1.5rem; }
+      .section-eyebrow span { font-size: 0.72rem; letter-spacing: 0.18em; }
+      .section-title { font-size: clamp(1.6rem, 5vw, 2.5rem); }
+
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .about-quote { font-size: 1.1rem; }
+      .about-desc { font-size: 0.95rem; line-height: 1.9; }
+      .trait-card { padding: 1rem; }
+      .trait-title { font-size: 0.85rem; }
+      .trait-desc { font-size: 0.8rem; }
+
       .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-      #contact { padding: 6rem 2rem; }
+      .stat-number { font-size: 2.8rem; }
+      .stat-label { font-size: 0.75rem; }
+
+      #contact { padding: 5rem 1.5rem; }
+      .contact-title { font-size: clamp(1.5rem, 5vw, 2.2rem); }
+      .contact-sub { font-size: 0.9rem; }
+
       .spotify-grid { grid-template-columns: 1fr; }
       .upcoming-dates { flex-direction: column; }
-      .featured-release { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 2rem; }
+      .featured-release { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.5rem; }
+      .featured-title { font-size: clamp(1.1rem, 4vw, 1.6rem); }
+
       .press-card { grid-template-columns: 1fr; gap: 1rem; }
+      .press-text { font-size: 0.9rem; }
+
+      .live-events { padding-left: 1rem; margin-left: 0.5rem; }
+      .live-event { padding: 1rem; }
+      .live-event-name { font-size: 0.95rem; }
+      .live-event-venue { font-size: 0.78rem; }
+      .live-event-date { font-size: 0.9rem; }
+      .live-photo { width: 90px; height: 62px; }
+
+      .album-entry-header { gap: 1rem; }
+      .album-entry-year { font-size: 1.8rem; }
+      .track-name { font-size: 0.9rem; }
+
+      .social-links { flex-wrap: wrap; gap: 0.6rem; }
+      .social-link { font-size: 0.85rem; padding: 0.7rem 1.1rem; min-height: 44px; }
     }
 
     @media (max-width: 480px) {
+      #hero { padding: 0 1.2rem; padding-top: 4.5rem; }
       .hero-name-zh { font-size: clamp(3rem, 15vw, 5rem); }
-      .album-entry-header { grid-template-columns: 50px 1fr; gap: 1rem; }
+      .hero-name-en { font-size: clamp(1.2rem, 4vw, 1.8rem); }
+      .hero-desc { font-size: 0.95rem; }
+
+      section { padding: 3.5rem 1.2rem; }
+
+      .album-entry-header { grid-template-columns: 50px 1fr; gap: 0.8rem; }
       .album-entry-year { font-size: 1.4rem; }
+
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+      .stat-number { font-size: 2.4rem; }
+
+      .live-year { font-size: 3.5rem; }
+      .live-event-name { font-size: 0.9rem; }
+      .live-event-date { font-size: 0.85rem; }
+
+      .press-card { padding: 1rem; }
+      .new-single-badge { font-size: 0.75rem; padding: 0.55rem 0.9rem; }
     }
   </style>
 </head>
@@ -1225,7 +1331,19 @@
       <li><a href="#press">媒體</a></li>
       <li><a href="#contact">聯絡</a></li>
     </ul>
+    <button class="nav-hamburger" id="hamburgerBtn" aria-label="開啟選單">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" class="mobile-nav-link">關於</a>
+    <a href="#music" class="mobile-nav-link">作品</a>
+    <a href="#live" class="mobile-nav-link">演出</a>
+    <a href="#press" class="mobile-nav-link">媒體</a>
+    <a href="#contact" class="mobile-nav-link">聯絡</a>
+  </div>
 
   <!-- HERO -->
   <section id="hero">
@@ -1598,6 +1716,26 @@
     }, { threshold: 0.12 });
 
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // hamburger menu
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburgerBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburgerBtn.classList.toggle('open', isOpen);
+      hamburgerBtn.setAttribute('aria-label', isOpen ? '關閉選單' : '開啟選單');
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamburgerBtn.classList.remove('open');
+        hamburgerBtn.setAttribute('aria-label', '開啟選單');
+        document.body.style.overflow = '';
+      });
+    });
 
     // lightbox
     const lbOverlay = document.createElement('div');
