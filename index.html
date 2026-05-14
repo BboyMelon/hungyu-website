@@ -131,12 +131,11 @@
     .nav-links a {
       color: var(--muted);
       text-decoration: none;
-      font-size: 0.72rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
       transition: color 0.3s;
       position: relative;
-      padding-bottom: 2px;
+      padding: 0.3rem 0.1rem;
     }
 
     .nav-links a::after {
@@ -1266,13 +1265,17 @@
       .about-grid { grid-template-columns: 1fr; gap: 3rem; }
       .featured-release { padding: 2rem 2.5rem; }
       .press-card { grid-template-columns: 180px 1fr; gap: 2rem; }
+      .nav-links { gap: 1.4rem; }
+    }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
     }
 
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
       nav.scrolled { padding: 0.7rem 1.5rem; }
-      .nav-links { display: none; }
-      .nav-hamburger { display: flex; }
 
       #hero { padding: 0 1.5rem; padding-top: 5rem; }
       .hero-content { max-width: 100%; }
