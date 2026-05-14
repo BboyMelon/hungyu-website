@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bboymelon.github.io/hungyu-website/sitemap.xml
