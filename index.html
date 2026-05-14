@@ -895,10 +895,7 @@
     }
 
     .live-event {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 1rem;
-      align-items: center;
+      display: block;
       padding: 1.2rem 1.5rem;
       background: rgba(37,99,200,0.02);
       border: 1px solid transparent;
@@ -911,8 +908,66 @@
       transform: translateX(4px);
     }
 
+    .live-event-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: center;
+    }
+
     .live-event-name { font-size: 0.92rem; margin-bottom: 0.2rem; color: var(--text); }
     .live-event-venue { font-size: 0.73rem; color: var(--muted); opacity: 0.8; }
+
+    .live-photos {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 2px;
+    }
+    .live-photos::-webkit-scrollbar { display: none; }
+
+    .live-photo {
+      width: 110px;
+      height: 75px;
+      object-fit: cover;
+      flex-shrink: 0;
+      border-radius: 2px;
+      cursor: pointer;
+      opacity: 0.85;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .live-photo:hover { opacity: 1; transform: scale(1.03); }
+
+    /* lightbox */
+    .lb-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.82);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+    .lb-overlay.active { display: flex; }
+    .lb-overlay img {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 3px;
+    }
+    .lb-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      line-height: 1;
+      opacity: 0.7;
+    }
+    .lb-close:hover { opacity: 1; }
 
     .live-event-date {
       font-family: 'Cormorant Garamond', serif;
@@ -1371,56 +1426,92 @@
       <div class="live-year">Past</div>
       <div class="live-events">
         <div class="live-event fade-up">
-          <div>
-            <div class="live-event-name">晚安計劃 專場</div>
-            <div class="live-event-venue">Seedmeet 場地</div>
-          </div>
-          <div class="live-event-date">2026.04.24</div>
-        </div>
-        <div class="live-event fade-up">
-          <div>
-            <div class="live-event-name">晚安計劃 v1 專場（雙場）</div>
-            <div class="live-event-venue">Seedmeet 場地</div>
-          </div>
-          <div class="live-event-date">2026.04.14</div>
-        </div>
-        <div class="live-event fade-up">
-          <div>
-            <div class="live-event-name">【水系男孩の浪漫】北中南巡演</div>
-            <div class="live-event-venue">高雄・台中・台北</div>
-          </div>
-          <div class="live-event-date">2025.06</div>
-        </div>
-        <div class="live-event fade-up">
-          <div>
-            <div class="live-event-name">《相同的缺憾》專輯發片專場</div>
-            <div class="live-event-venue">公館 The Wall</div>
-          </div>
-          <div class="live-event-date">2024</div>
-        </div>
-        <div class="live-event fade-up">
-          <div>
-            <div class="live-event-name">
-              DigiWave 光島音樂祭
-              <span class="live-badge festival">音樂節</span>
+          <div class="live-event-header">
+            <div>
+              <div class="live-event-name">晚安計劃 專場</div>
+              <div class="live-event-venue">Seedmeet 場地</div>
             </div>
-            <div class="live-event-venue">高雄</div>
+            <div class="live-event-date">2026.04.24</div>
           </div>
-          <div class="live-event-date">2024</div>
+          <div class="live-photos">
+            <img class="live-photo" src="images/concerts/concert_0424_1.jpg" alt="晚安計劃 專場 花絮 1" />
+            <img class="live-photo" src="images/concerts/concert_0424_2.jpg" alt="晚安計劃 專場 花絮 2" />
+          </div>
         </div>
         <div class="live-event fade-up">
-          <div>
-            <div class="live-event-name">《潮汐與你之間》專場</div>
-            <div class="live-event-venue">樂悠悠之口</div>
+          <div class="live-event-header">
+            <div>
+              <div class="live-event-name">晚安計劃 v1 專場（雙場）</div>
+              <div class="live-event-venue">Seedmeet 場地</div>
+            </div>
+            <div class="live-event-date">2026.04.14</div>
           </div>
-          <div class="live-event-date">2023</div>
+          <div class="live-photos">
+            <img class="live-photo" src="images/concerts/concert_0414_1.jpg" alt="晚安計劃 v1 專場 花絮 1" />
+            <img class="live-photo" src="images/concerts/concert_0414_2.jpg" alt="晚安計劃 v1 專場 花絮 2" />
+          </div>
         </div>
         <div class="live-event fade-up">
-          <div>
-            <div class="live-event-name">《逃進你的夢裡睡了一會》</div>
-            <div class="live-event-venue">華山 Legacy Taipei</div>
+          <div class="live-event-header">
+            <div>
+              <div class="live-event-name">【水系男孩の浪漫】北中南巡演</div>
+              <div class="live-event-venue">高雄・台中・台北</div>
+            </div>
+            <div class="live-event-date">2025.06</div>
           </div>
-          <div class="live-event-date">2022</div>
+          <div class="live-photos">
+            <img class="live-photo" src="images/concerts/concert_suikei_1.jpg" alt="水系男孩の浪漫 巡演 花絮 1" />
+            <img class="live-photo" src="images/concerts/concert_suikei_2.jpg" alt="水系男孩の浪漫 巡演 花絮 2" />
+          </div>
+        </div>
+        <div class="live-event fade-up">
+          <div class="live-event-header">
+            <div>
+              <div class="live-event-name">《相同的缺憾》專輯發片專場</div>
+              <div class="live-event-venue">公館 The Wall</div>
+            </div>
+            <div class="live-event-date">2024</div>
+          </div>
+          <div class="live-photos">
+            <img class="live-photo" src="images/concerts/concert_quehan_1.jpg" alt="相同的缺憾 專場 花絮" />
+          </div>
+        </div>
+        <div class="live-event fade-up">
+          <div class="live-event-header">
+            <div>
+              <div class="live-event-name">
+                DigiWave 光島音樂祭
+                <span class="live-badge festival">音樂節</span>
+              </div>
+              <div class="live-event-venue">高雄</div>
+            </div>
+            <div class="live-event-date">2024</div>
+          </div>
+        </div>
+        <div class="live-event fade-up">
+          <div class="live-event-header">
+            <div>
+              <div class="live-event-name">《潮汐與你之間》專場</div>
+              <div class="live-event-venue">樂悠悠之口</div>
+            </div>
+            <div class="live-event-date">2023</div>
+          </div>
+          <div class="live-photos">
+            <img class="live-photo" src="images/concerts/concert_tidal_1.jpg" alt="潮汐與你之間 專場 花絮 1" />
+            <img class="live-photo" src="images/concerts/concert_tidal_2.jpg" alt="潮汐與你之間 專場 花絮 2" />
+          </div>
+        </div>
+        <div class="live-event fade-up">
+          <div class="live-event-header">
+            <div>
+              <div class="live-event-name">《逃進你的夢裡睡了一會》</div>
+              <div class="live-event-venue">華山 Legacy Taipei</div>
+            </div>
+            <div class="live-event-date">2022</div>
+          </div>
+          <div class="live-photos">
+            <img class="live-photo" src="images/concerts/concert_dream_1.jpg" alt="逃進你的夢裡睡了一會 花絮" />
+          </div>
         </div>
         <div class="live-event fade-up">
           <div>
@@ -1507,6 +1598,32 @@
     }, { threshold: 0.12 });
 
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // lightbox
+    const lbOverlay = document.createElement('div');
+    lbOverlay.className = 'lb-overlay';
+    lbOverlay.innerHTML = '<span class="lb-close">✕</span><img src="" alt="" />';
+    document.body.appendChild(lbOverlay);
+
+    const lbImg = lbOverlay.querySelector('img');
+
+    document.querySelectorAll('.live-photo').forEach(img => {
+      img.addEventListener('click', () => {
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lbOverlay.classList.add('active');
+      });
+    });
+
+    lbOverlay.addEventListener('click', e => {
+      if (e.target === lbOverlay || e.target.classList.contains('lb-close')) {
+        lbOverlay.classList.remove('active');
+      }
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') lbOverlay.classList.remove('active');
+    });
   </script>
 
 </body>
